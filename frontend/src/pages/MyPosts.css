@@ -1,0 +1,63 @@
+/* src/pages/MyPosts.css */
+
+.my-posts-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.my-posts-container h2 {
+  text-align: center;
+  color: #0066cc;
+  margin-bottom: 30px;
+}
+
+.posts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.post-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+}
+
+.post-card h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.post-card p {
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.private-label,
+.public-label {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: white;
+}
+
+.private-label {
+  background-color: #dc3545;
+}
+
+.public-label {
+  background-color: #28a745;
+}

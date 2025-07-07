@@ -1,0 +1,77 @@
+/* src/pages/CreatePost.css */
+
+.create-post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #e1f0ff, #f8fbff);
+  font-family: 'Poppins', sans-serif;
+}
+
+.create-post-form {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-post-form h2 {
+  text-align: center;
+  color: #0066cc;
+  margin-bottom: 20px;
+}
+
+.create-post-form input,
+.create-post-form textarea {
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: none;
+}
+
+.create-post-form textarea {
+  height: 120px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  transform: scale(1.2);
+  margin: 0;
+}
+
+
+.create-post-form button {
+  background-color: #0066cc;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.create-post-form button:hover {
+  background-color: #004a99;
+}
+
+.post-message {
+  margin-top: 10px;
+  text-align: center;
+  color: #28a745;
+}
