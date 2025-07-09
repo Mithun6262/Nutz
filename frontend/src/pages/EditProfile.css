@@ -1,0 +1,145 @@
+/* src/pages/EditProfile.css */
+
+.edit-profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #ffffff, #f0f4f8);
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.edit-profile-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 30px 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.edit-profile-card h2 {
+  font-size: 26px;
+  color: #222;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.edit-profile-card label {
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.edit-profile-card input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #f9f9f9;
+}
+
+.edit-profile-card input:disabled {
+  background-color: #eaeaea;
+  color: #999;
+}
+
+.edit-profile-card .error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.save-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.save-button:hover {
+  background-color: #007cd1;
+}
+
+.success {
+  color: green;
+  text-align: center;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.change-password-section {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 30px 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.change-password-section h3 {
+  font-size: 22px;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.change-password-section form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.change-password-section button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0095f6;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.change-password-section button:hover {
+  background-color: #007cd1;
+}
+
+.message {
+  color: #0095f6;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 16px 0;
+  font-size: 22px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}

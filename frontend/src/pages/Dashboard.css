@@ -112,6 +112,14 @@
   line-height: 1.4;
 }
 
+.post-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
 /* Post actions (like/comment/share icons) */
 .post-actions {
   display: flex;
@@ -129,4 +137,93 @@
 .post-actions span:hover {
   transform: scale(1.1);
   color: #111;
+}
+
+/* ✅ Like button styling */
+.like-section {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.like-button {
+  background-color: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.like-button:hover {
+  background-color: #f0f0f0;
+}
+
+.like-button.liked {
+  color: red;
+  font-weight: bold;
+}
+
+.like-count {
+  font-size: 14px;
+  color: #444;
+}
+
+/* ✅ Comment input + list */
+.comment-section {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.comment-section input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.comment-section button {
+  padding: 6px 12px;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.comment-section button:hover {
+  background-color: #218838;
+}
+
+.comments-list {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.comments-list p {
+  margin: 4px 0;
+  padding-left: 6px;
+}
+
+/* ✅ Delete post button (only visible to post owner) */
+.delete-button {
+  margin-top: 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
 }

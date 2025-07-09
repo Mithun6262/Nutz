@@ -16,6 +16,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
+  // ✅ Added field: stores last 3 passwords for change-password validation
+  passwordHistory: {
+    type: [String],
+    default: [],
+  },
 });
 
 module.exports = mongoose.model('User', UserSchema);

@@ -38,7 +38,8 @@ exports.login = async (req, res) => {
     if (user.password !== password)
       return res.status(400).json({ message: 'Invalid credentials' });
 
-    res.json({ message: 'Login successful', user });
+    // ✅ Send proper status code
+    res.status(200).json({ message: 'Login successful', user });
   } catch (err) {
     res.status(500).json({ message: 'Server error' });
   }
@@ -62,12 +63,13 @@ exports.changePassword = async (req, res) => {
 
     if (
       user.password === newPassword ||
-      user.passwordHistory.includes(newPassword)
+      (user.passwordHistory || []).includes(newPassword)
     ) {
       return res.status(400).json({ message: 'New password must not match the last 3 passwords' });
     }
 
     // Update password and history
+    user.passwordHistory = user.passwordHistory || [];
     user.passwordHistory.unshift(user.password); // push current password to history
     if (user.passwordHistory.length > 3) {
       user.passwordHistory = user.passwordHistory.slice(0, 3); // keep last 3 only

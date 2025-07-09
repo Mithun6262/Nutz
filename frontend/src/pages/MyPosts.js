@@ -1,65 +1,87 @@
 // src/pages/MyPosts.js
 
 import React, { useEffect, useState } from 'react';
-import './Dashboard.css'; // reuse same CSS used for Dashboard
+import './MyPosts.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function MyPosts() {
   const [posts, setPosts] = useState([]);
+  const user = JSON.parse(localStorage.getItem('user'));
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (!user) return;
+
     const fetchMyPosts = async () => {
-      const user = JSON.parse(localStorage.getItem('user'));
       try {
         const res = await axios.get(`http://localhost:5000/api/posts/user/${user._id}`);
         setPosts(res.data);
       } catch (err) {
-        console.error('Failed to fetch user posts:', err);
+        console.error('Error fetching user posts:', err);
       }
     };
 
     fetchMyPosts();
-  }, []);
+  }, [user]);
+
+  const handleDelete = async (postId) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/posts/${postId}`, {
+        data: { userId: user._id }
+      });
+
+      setPosts((prevPosts) => prevPosts.filter((post) => post._id !== postId));
+      localStorage.setItem('refreshDashboard', 'true');
+    } catch (err) {
+      console.error('Error deleting post:', err);
+    }
+  };
 
   return (
-    <div className="dashboard-container">
-      <div className="dashboard-card">
-        <h2>📝 My Posts</h2>
-      </div>
+    <div className="my-posts-container">
+      <h2>My Posts</h2>
+      {posts.length === 0 ? (
+        <p>You have not created any posts yet.</p>
+      ) : (
+        <div className="my-post-feed">
+          {posts.map((post) => (
+            <div key={post._id} className="post-card">
+              <p className="post-title"><strong>{post.title}</strong></p>
 
-      <div className="feed-section">
-        {posts.length === 0 ? (
-          <p>You have not created any posts yet.</p>
-        ) : (
-          <div className="post-feed">
-            {posts.map((post) => (
-              <div key={post._id} className="post-card">
-                <div className="post-header">
-                  <div className="post-user-info">
-                    <div className="post-avatar"></div>
-                    <p className="post-username">@You</p>
-                  </div>
-                  <p className="post-timestamp">
-                    {new Date(post.createdAt).toLocaleString()}
-                  </p>
-                </div>
+              {post.imageUrl && (
+                <img
+                  src={`http://localhost:5000${post.imageUrl}`}
+                  alt="Post"
+                  className="post-image"
+                />
+              )}
 
-                {post.title && <p className="post-title">{post.title}</p>}
-                <p className="post-content">{post.content}</p>
+              <p className="post-content">{post.content}</p>
+              <p className="post-timestamp">
+                {new Date(post.createdAt).toLocaleString()}
+              </p>
 
-                <div className="post-actions">
-                  <span>❤️</span>
-                  <span>💬</span>
-                  <span>✈️</span>
-                </div>
-
-                <span className={post.isPrivate ? 'private-label' : 'public-label'}>
-                  {post.isPrivate ? 'Private' : 'Public'}
+              {/* Label + Delete aligned horizontally */}
+              <div className="post-actions-row">
+                <span className={post.visibility === 'private' ? 'private-label' : 'public-label'}>
+                  {post.visibility === 'private' ? 'Private' : 'Public'}
                 </span>
+
+                <button className="delete-button" onClick={() => handleDelete(post._id)}>
+                  🗑️ Delete Post
+                </button>
               </div>
-            ))}
-          </div>
-        )}
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Bottom Navigation */}
+      <div className="bottom-nav">
+        <span onClick={() => navigate('/dashboard')}>🏠 Home</span>
+        <span onClick={() => navigate('/create-post')}>➕ Create</span>
+        <span onClick={() => navigate('/profile')}>👤 Profile</span>
       </div>
     </div>
   );

@@ -1,77 +1,80 @@
-/* src/pages/CreatePost.css */
-
 .create-post-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(to right, #e1f0ff, #f8fbff);
-  font-family: 'Poppins', sans-serif;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-post-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #333;
 }
 
 .create-post-form {
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
-.create-post-form h2 {
-  text-align: center;
-  color: #0066cc;
-  margin-bottom: 20px;
-}
-
-.create-post-form input,
-.create-post-form textarea {
+.create-post-form input[type="text"],
+.create-post-form textarea,
+.create-post-form select {
   padding: 12px;
-  margin-bottom: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
-  resize: none;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .create-post-form textarea {
-  height: 120px;
+  resize: vertical;
+  min-height: 100px;
 }
 
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.create-post-form input[type="file"] {
   font-size: 15px;
-  color: #333;
-  margin-bottom: 16px;
+  padding: 5px;
 }
-
-.checkbox-label input[type="checkbox"] {
-  transform: scale(1.2);
-  margin: 0;
-}
-
 
 .create-post-form button {
-  background-color: #0066cc;
-  color: white;
   padding: 12px;
+  font-size: 16px;
+  background-color: #0095f6;
+  color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .create-post-form button:hover {
-  background-color: #004a99;
+  background-color: #007cd5;
 }
 
-.post-message {
-  margin-top: 10px;
-  text-align: center;
-  color: #28a745;
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-around;
+  font-size: 18px;
+  border-top: 1px solid #ccc;
+  z-index: 1000;
+}
+
+.bottom-nav span {
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+.bottom-nav span:hover {
+  color: #000;
 }

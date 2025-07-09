@@ -1,3 +1,5 @@
+// src/pages/Login.js
+
 import React, { useState } from 'react';
 import './Login.css';
 import axios from 'axios';
@@ -31,10 +33,12 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        navigate('/dashboard'); // Or wherever you want to redirect after login
+        // ✅ Store user data in localStorage
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        navigate('/dashboard');
       }
     } catch (err) {
-      console.error(err);
+      console.error('Login error:', err);
       if (
         err.response &&
         err.response.status === 400 &&
